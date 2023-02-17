@@ -1,22 +1,26 @@
 package com.plane.core.objs;
 
 import com.plane.Setting;
+import com.plane.core.MathHelper;
+import com.plane.core.objs.bullets.PlayerBullet;
+import com.plane.ui.GamePane;
 import com.plane.ui.Renderer;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Player extends LivingObject implements KeyListener {
-    public static int SPEED=10;
+    public static int SPEED=7;
     private boolean left=false;
     private boolean right=false;
     private boolean up=false;
     private boolean down=false;
     private boolean fire=false;
+    private int fireDelay=0;
     @Override
     public void render(Renderer r) {
-        r.drawRect(x,y,width,height);
-        r.text("player\nhealth:"+this.health,x,y);
+        r.drawRect(x,y,width,height,false);
+        r.text("player  health:"+this.health,x,y);
     }
 
     @Override
@@ -28,7 +32,10 @@ public class Player extends LivingObject implements KeyListener {
         if (fire) fire();
     }
     public void fire(){
-
+        if (--fireDelay<1){
+            fireDelay=15;
+            GamePane.instance.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
+        }
     }
 
     public Player(){
