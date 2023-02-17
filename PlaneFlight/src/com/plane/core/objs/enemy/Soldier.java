@@ -30,13 +30,14 @@ public class Soldier extends Enemy{
             Game.player.damage(DAMAGE,this);
             Game.removeObj(this);
         }
-        if (health<0) Game.removeObj(this);
+        if (health<0) {
+            Game.removeObj(this);
+            Game.money+=10;
+        }
     }
 
     public Soldier(int health,int x,int y) {
-        super(health);
-        this.x=x;
-        this.y=y;
+        super(health,x,y);
         width=WIDTH;
         height=HEIGHT;
     }

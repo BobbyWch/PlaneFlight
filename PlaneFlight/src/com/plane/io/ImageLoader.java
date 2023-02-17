@@ -11,18 +11,18 @@ public class ImageLoader {
      * @return 图片
      */
     public static Image getImage(String path,int width,int height){
-//        try {
-//            if (width+height==0){
-//                return ImageIO.read(ImageLoader.class.getClassLoader().getResource(path));
-//            }else {
-//                return ImageIO.read(ImageLoader.class.getClassLoader().getResource(path))
-//                        .getScaledInstance(width,height,Image.SCALE_SMOOTH);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.out.println("图片加载异常");
-//            System.exit(0);
-//        }
+        try {
+            if (width+height==0){
+                return ImageIO.read(ImageLoader.class.getClassLoader().getResource(path));
+            }else {
+                return ImageIO.read(ImageLoader.class.getClassLoader().getResource(path))
+                        .getScaledInstance(width,height,Image.SCALE_SMOOTH);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("图片加载异常");
+            System.exit(0);
+        }
         return null;
     }
 }

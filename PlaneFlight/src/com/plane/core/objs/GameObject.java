@@ -9,7 +9,7 @@ public abstract class GameObject {
     public int height;
     public abstract void render(Renderer r);
     public boolean isCover(GameObject o){
-        return bottomY()>o.y&&y<o.bottomY()&&rightX()>o.x&&x<o.rightX();
+        return bottomY()>=o.y&&y<=o.bottomY()&&rightX()>=o.x&&x<=o.rightX();
     }
     public abstract void tick();
     public int centreX() {

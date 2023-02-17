@@ -25,7 +25,7 @@ public class Game {
     public static final LinkedList<GameObject> waitAdd=new LinkedList<>();
     public static Player player;
     public static int round=0;
-
+    public static int money=0;
     /**
      * 初始化，软件第一次启动时启动
      */
@@ -37,6 +37,7 @@ public class Game {
      * 开始一局新的游戏
      */
     public static void start(){
+        money=0;
         nextRound();
     }
 

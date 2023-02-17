@@ -22,6 +22,10 @@ public class Renderer {
     public void text(String s,int x,int y){
         g.drawString(s,x,y);
     }
+    public void text(String s,int x,int y,Color color){
+        g.setColor(color);
+        g.drawString(s,x,y);
+    }
     public void drawImage(Image img,int x,int y){
         if (img==null) return;
         g.drawImage(img,x,y,null);

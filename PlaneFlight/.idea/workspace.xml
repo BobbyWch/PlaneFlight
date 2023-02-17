@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PlaneFlight" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8a987bb-1080-47c6-91a6-bed042afae5b" name="变更" comment="" />
+    <list default="true" id="e8a987bb-1080-47c6-91a6-bed042afae5b" name="变更" comment="变更" />
     <list id="7d351cde-f05f-498b-8af7-9a48b7935eb2" name="majie 进行的变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,17 +38,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="com.plane.core.Game" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Document\GitHub\PlaneFlight\PlaneFlight\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -74,6 +79,11 @@
       <workItem from="1676625286901" duration="2452000" />
       <workItem from="1676628243290" duration="2485000" />
       <workItem from="1676632332905" duration="5877000" />
+      <workItem from="1676638582754" duration="674000" />
+      <workItem from="1676644870713" duration="26000" />
+      <workItem from="1676645700318" duration="74000" />
+      <workItem from="1676645792371" duration="88000" />
+      <workItem from="1676645904479" duration="2293000" />
     </task>
     <servers />
   </component>

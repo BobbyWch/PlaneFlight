@@ -22,7 +22,7 @@ public class PlayerBullet extends Bullet{
     }
 
     public boolean hit(GameObject o){
-        return y<o.bottomY()&&rightX()>o.x&&x<o.rightX(); //判断子弹与敌人是否相交
+        return y<=o.bottomY()&&rightX()>=o.x&&x<=o.rightX(); //判断子弹与敌人是否相交
     }
     @Override
     public void tick() {
