@@ -17,10 +17,16 @@ public class Player extends LivingObject implements KeyListener {
     private boolean down=false;
     private boolean fire=false;
     private int fireDelay=0;
+
+    public void Up(){
+        level += level;
+    }
+
     @Override
     public void render(Renderer r) {
         r.drawRect(x,y,width,height,false);
         r.text("player  health:"+this.health,x,y);
+        r.text("level:"+this.level,x,y-15);
     }
 
     @Override
@@ -39,7 +45,7 @@ public class Player extends LivingObject implements KeyListener {
     }
 
     public Player(){
-        super(Setting.PLAYER_HEALTH);
+        super(Setting.PLAYER_HEALTH, Setting.LEVEL);
         this.width=100;
         this.height=100;
     }

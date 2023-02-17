@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8a987bb-1080-47c6-91a6-bed042afae5b" name="变更" comment="" />
+    <list default="true" id="e8a987bb-1080-47c6-91a6-bed042afae5b" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/plane/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/plane/Setting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/plane/core/objs/LivingObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/plane/core/objs/LivingObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/plane/core/objs/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/plane/core/objs/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/plane/core/objs/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/plane/core/objs/enemy/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/plane/ui/RenderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/plane/ui/RenderThread.java" afterDir="false" />
+    </list>
     <list id="7d351cde-f05f-498b-8af7-9a48b7935eb2" name="majie 进行的变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -27,22 +42,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
   <component name="RunManager">
-    <configuration name="未命名" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="未命名" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.plane.Main" />
       <module name="PlaneFlight" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.未命名" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -55,6 +78,7 @@
       <workItem from="1676554785570" duration="3159000" />
       <workItem from="1676623176783" duration="813000" />
       <workItem from="1676624287491" duration="818000" />
+      <workItem from="1676625286901" duration="2452000" />
     </task>
     <servers />
   </component>
