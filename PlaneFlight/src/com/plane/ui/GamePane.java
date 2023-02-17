@@ -1,11 +1,10 @@
 package com.plane.ui;
 
 import com.plane.core.Game;
-import com.plane.core.GameObject;
+import com.plane.core.objs.GameObject;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public class GamePane extends JPanel {
@@ -14,8 +13,8 @@ public class GamePane extends JPanel {
     private final LinkedList<GameObject> allObjects=new LinkedList<>();
     private final Renderer renderer=new Renderer();
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+    public void paint(Graphics g) {
+        g.clearRect(0,0,getWidth(),getHeight());//直接清除矩形，不调用父类
         Renderer r=renderer;//创建局部变量，提速
         r.setGraphic(g);
         for (GameObject o:allObjects){
@@ -30,18 +29,8 @@ public class GamePane extends JPanel {
         instance=this;
         setLayout(null);
         addObject(Game.player);
-        addKeyListener(Game.player);
         Game.player.x=600;
         Game.player.y=500;
-        new Thread(() -> {
-            try {
-                while (true){
-                    Thread.sleep(15);
-                    repaint();
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }).start();
+        new RenderThread(this).start();
     }
 }

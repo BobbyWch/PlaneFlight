@@ -1,4 +1,4 @@
-package com.plane.core;
+package com.plane.core.objs;
 
 import com.plane.ui.Renderer;
 

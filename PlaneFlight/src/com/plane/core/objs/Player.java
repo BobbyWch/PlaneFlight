@@ -1,11 +1,13 @@
-package com.plane.core;
+package com.plane.core.objs;
 
+import com.plane.Setting;
 import com.plane.ui.Renderer;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Player extends GameObject implements KeyListener {
+public class Player extends LivingObject implements KeyListener {
+    public static int SPEED=10;
     private boolean left=false;
     private boolean right=false;
     private boolean up=false;
@@ -14,32 +16,23 @@ public class Player extends GameObject implements KeyListener {
     @Override
     public void render(Renderer r) {
         r.drawRect(x,y,width,height);
-        r.text("player",x,y);
+        r.text("player\nhealth:"+this.health,x,y);
     }
 
     @Override
     public void tick() {
-        if (left){
-            x--;
-        }
-        if (right){
-            x++;
-        }
-        if (up){
-            y--;
-        }
-        if (down){
-            y++;
-        }
-        if (fire){
-            fire();
-        }
+        if (left) x -= SPEED;
+        if (right) x += SPEED;
+        if (up) y -= SPEED;
+        if (down) y += SPEED;
+        if (fire) fire();
     }
     public void fire(){
 
     }
 
     public Player(){
+        super(Setting.PLAYER_HEALTH);
         this.width=100;
         this.height=100;
     }
@@ -89,5 +82,10 @@ public class Player extends GameObject implements KeyListener {
                 fire=false;
                 break;
         }
+    }
+
+    @Override
+    public void damage(int amount, GameObject source) {
+        health-=amount;
     }
 }
