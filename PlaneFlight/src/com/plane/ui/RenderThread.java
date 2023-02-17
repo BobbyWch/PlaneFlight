@@ -4,6 +4,11 @@ import com.plane.core.Game;
 
 import javax.swing.*;
 
+/**
+ * 渲染线程，与主线程平行
+ * 每秒绘制fps帧图像
+ * 我没给注释的就不太重要了
+ */
 public class RenderThread extends Thread{
     private int fps=60;
     private final GamePane pane;
@@ -11,6 +16,10 @@ public class RenderThread extends Thread{
         this.pane=pane;
     }
 
+    /**
+     * 设置帧数，因为游戏暂停时可以以更低的帧数绘制
+     * @param fps 帧数
+     */
     public void setFps(int fps) {
         this.fps = fps;
     }

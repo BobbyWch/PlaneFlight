@@ -10,6 +10,6 @@ public class HostileBullet extends Bullet{
 
     @Override
     public void tick() {
-
+        super.tick();
     }
 }

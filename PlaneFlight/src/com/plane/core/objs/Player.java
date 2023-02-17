@@ -1,13 +1,16 @@
 package com.plane.core.objs;
 
 import com.plane.Setting;
+import com.plane.core.Game;
 import com.plane.core.MathHelper;
 import com.plane.core.objs.bullets.PlayerBullet;
 import com.plane.ui.GamePane;
 import com.plane.ui.Renderer;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Set;
 
 public class Player extends LivingObject implements KeyListener {
     public static int SPEED=7;
@@ -18,42 +21,51 @@ public class Player extends LivingObject implements KeyListener {
     private boolean fire=false;
     private int fireDelay=0;
 
-    public void Up(){
-        level += level;
-    }
-
     @Override
     public void render(Renderer r) {
-        r.drawRect(x,y,width,height,false);
+        r.drawRect(x,y,width,height,false, Color.green);
         r.text("player  health:"+this.health,x,y);
-        r.text("level:"+this.level,x,y-15);
     }
-
     @Override
     public void tick() {
-        if (left) x -= SPEED;
-        if (right) x += SPEED;
-        if (up) y -= SPEED;
-        if (down) y += SPEED;
+        if (left) {
+            x -= SPEED;
+            if (x<1) x=1;
+        }
+        if (right) {
+            x += SPEED;
+            if (x>Setting.WIDTH-width) x= Setting.WIDTH-width;
+        }
+        if (up) {
+            y-=SPEED;
+            if (y<1) y=1;
+        }
+        if (down) {
+            y += SPEED;
+            if (y>Setting.HEIGHT-height) y= Setting.HEIGHT-height;
+        }
         if (fire) fire();
+        if (health<0){
+            Game.gg();
+            Game.removeObj(this);
+        }
     }
     public void fire(){
         if (--fireDelay<1){
-            fireDelay=15;
-            GamePane.instance.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
+            fireDelay=10;
+            Game.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
         }
     }
 
     public Player(){
-        super(Setting.PLAYER_HEALTH, Setting.LEVEL);
-        this.width=100;
-        this.height=100;
+        super(Setting.PLAYER_HEALTH);
+        this.width=70;
+        this.height=70;
+        this.x=(Setting.WIDTH-width)/2;
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -95,10 +107,5 @@ public class Player extends LivingObject implements KeyListener {
                 fire=false;
                 break;
         }
-    }
-
-    @Override
-    public void damage(int amount, GameObject source) {
-        health-=amount;
     }
 }

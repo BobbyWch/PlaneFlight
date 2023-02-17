@@ -1,8 +1,9 @@
 package com.plane.core.objs.enemy;
 
-import com.plane.core.objs.GameObject;
+import com.plane.core.objs.LivingObject;
 
-public abstract class Enemy extends GameObject {
-    public int health;
-    public int number = 3;
+public abstract class Enemy extends LivingObject {
+    public Enemy(int health) {
+        super(health);
+    }
 }

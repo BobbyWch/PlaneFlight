@@ -2,10 +2,10 @@ package com.plane.core.objs;
 
 public abstract class LivingObject extends GameObject{
     public int health;
-    public int level;
-    public abstract void damage(int amount,GameObject source);
-    public LivingObject(int health, int level){
+    public void damage(int amount,GameObject source){
+        this.health-=amount;
+    }
+    public LivingObject(int health){
         this.health=health;
-        this.level=level;
     }
 }

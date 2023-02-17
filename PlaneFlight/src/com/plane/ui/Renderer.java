@@ -14,11 +14,16 @@ public class Renderer {
     /**
      *  绘制矩形
      */
-    public void drawRect(int x,int y,int width,int height,boolean fill){
+    public void drawRect(int x,int y,int width,int height,boolean fill,Color color){
+        g.setColor(color);
         if (fill) g.fillRect(x, y, width, height);
         else g.drawRect(x, y, width, height);
     }
     public void text(String s,int x,int y){
         g.drawString(s,x,y);
+    }
+    public void drawImage(Image img,int x,int y){
+        if (img==null) return;
+        g.drawImage(img,x,y,null);
     }
 }
