@@ -3,7 +3,6 @@ package com.plane.core.objs.bullets;
 import com.plane.Setting;
 import com.plane.core.Game;
 import com.plane.core.objs.GameObject;
-import com.plane.ui.GamePane;
 
 public abstract class Bullet extends GameObject {
     /**

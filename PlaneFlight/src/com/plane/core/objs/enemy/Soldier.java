@@ -2,6 +2,7 @@ package com.plane.core.objs.enemy;
 
 import com.plane.Setting;
 import com.plane.core.Game;
+import com.plane.core.move.MoveControl;
 import com.plane.core.objs.GameObject;
 import com.plane.ui.Renderer;
 
@@ -24,7 +25,11 @@ public class Soldier extends Enemy{
 
     @Override
     public void tick() {
-        y += SPEED;
+        move.move();
+        //如果在player上面就追踪
+        if (y<Game.player.y){
+            move.update(Game.player);
+        }
         if (y> Setting.HEIGHT){
             Game.removeObj(this);
             if (Game.money>5) Game.money-=5;
@@ -39,11 +44,13 @@ public class Soldier extends Enemy{
             Game.money+=10;
         }
     }
+    private final MoveControl move;
 
     public Soldier(int health,int x,int y) {
         super(health,x,y);
         width=WIDTH;
         height=HEIGHT;
+        move=new MoveControl(this,SPEED,MoveControl.DOWN);
     }
 
     @Override

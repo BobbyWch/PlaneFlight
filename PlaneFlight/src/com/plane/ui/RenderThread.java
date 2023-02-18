@@ -1,15 +1,11 @@
 package com.plane.ui;
 
-import com.plane.core.Game;
-
-import javax.swing.*;
-
 /**
  * 渲染线程，与主线程平行
  * 每秒绘制fps帧图像
  * 我没给注释的就不太重要了
  */
-public class RenderThread extends Thread{
+public final class RenderThread extends Thread{
     private int fps=60;
     private final GamePane pane;
     public RenderThread(GamePane pane){

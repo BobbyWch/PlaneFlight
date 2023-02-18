@@ -22,12 +22,13 @@ public class PlayerBullet extends Bullet{
     }
 
     public boolean hit(GameObject o){
-        return y<=o.bottomY()&&rightX()>=o.x&&x<=o.rightX(); //判断子弹与敌人是否相交
+//        return y<=o.bottomY()&&rightX()>=o.x&&x<=o.rightX(); //判断子弹与敌人是否相交
+        //提速
+        return y<=o.y+o.height&&x+width>=o.x&&x<=o.x+o.width;
     }
     @Override
     public void tick() {
         super.tick();
-
         for (Enemy e: Game.enemies){
             if (this.hit(e)){
                 e.damage(DAMAGE,this);

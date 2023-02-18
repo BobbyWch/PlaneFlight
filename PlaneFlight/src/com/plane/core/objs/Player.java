@@ -4,13 +4,11 @@ import com.plane.Setting;
 import com.plane.core.Game;
 import com.plane.core.MathHelper;
 import com.plane.core.objs.bullets.PlayerBullet;
-import com.plane.ui.GamePane;
 import com.plane.ui.Renderer;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Set;
 
 public class Player extends LivingObject implements KeyListener {
     public static int SPEED=7;
@@ -53,10 +51,10 @@ public class Player extends LivingObject implements KeyListener {
     public void fire(){
         if (--fireDelay<1){
             fireDelay=10;
-            if (Game.money<10)  //如果金钱超过10则改为随机子弹
+//            if (Game.money<10)  //如果金钱超过10则改为随机子弹
                 Game.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
-            else
-                Game.addObject(new PlayerBullet(MathHelper.rand(x, rightX()), y));  //  获得升级
+//            else
+//                Game.addObject(new PlayerBullet(MathHelper.rand(x, rightX()), y));  //  获得升级
         }
     }
 

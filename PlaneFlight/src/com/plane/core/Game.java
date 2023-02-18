@@ -11,7 +11,7 @@ import java.util.LinkedList;
 /**
  * 存放全局单例
  */
-public class Game {
+public final class Game {
     /**
      * 所有注册的游戏对象
      */

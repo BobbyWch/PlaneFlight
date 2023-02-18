@@ -4,7 +4,7 @@ import com.plane.core.objs.LivingObject;
 
 import java.awt.*;
 
-public class Renderer {
+public final class Renderer {
     private Graphics g;
     public Renderer(){
     }
@@ -37,7 +37,7 @@ public class Renderer {
      * @param l 有血量的对象
      */
     public void healthBar(LivingObject l){
-        healthBar(l,l.x+15,l.y-13,l.width-30,10);
+        healthBar(l,l.x+5,l.y-10,l.width-10,6);
     }
     /**
      * 画血条
@@ -48,8 +48,10 @@ public class Renderer {
      * @param height 高度
      */
     public void healthBar(LivingObject l,int x,int y,int width,int height){
+        //能用就行，不想写注释了
         drawRect(x,y,width,height,true,Color.red);
-        int w=(int) ((double)l.health)/l.healthMax*width;
-        drawRect(width-w-1,y+1,w,height-2,true,Color.white);
+        if (l.health==l.healthMax) return;
+        int a=(int) (((double)l.health)/l.healthMax*width);
+        drawRect(a+x,y+1, width-a-1,height-2,true,Color.white);
     }
 }
