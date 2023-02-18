@@ -17,7 +17,9 @@ public class Soldier extends Enemy{
     @Override
     public void render(Renderer r) {
         r.drawRect(this.x, this.y, width, height, false, Color.BLUE);
-        r.text("health:" + health, this.x, this.y);
+        if (health<healthMax){
+            r.healthBar(this);
+        }
     }
 
     @Override
@@ -31,7 +33,7 @@ public class Soldier extends Enemy{
             Game.player.damage(DAMAGE,this);
             Game.removeObj(this);
         }
-        if (health<0) {
+        if (health<=0) {
             Game.removeObj(this);
             Game.money+=10;
         }

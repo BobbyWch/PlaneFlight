@@ -55,5 +55,6 @@ public class GamePane extends JPanel {
     }
     private void gui(Renderer r){
         r.text(String.valueOf(Game.money),0,fontHeight,Color.orange);
+        r.healthBar(Game.player,0,fontHeight+10,100,10);
     }
 }

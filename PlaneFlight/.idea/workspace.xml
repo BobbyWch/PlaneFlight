@@ -9,11 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8a987bb-1080-47c6-91a6-bed042afae5b" name="变更" comment="变更">
-      <change beforePath="$PROJECT_DIR$/src/com/plane/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/plane/core/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/plane/core/objs/enemy/Soldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/plane/core/objs/enemy/Soldier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/plane/core/objs/enemy/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/plane/core/objs/enemy/Tank.java" afterDir="false" />
-    </list>
+    <list default="true" id="e8a987bb-1080-47c6-91a6-bed042afae5b" name="变更" comment="变更" />
+    <list id="74d275d3-c505-4ae7-82fd-7bf57b9cfa20" name="Andy 进行的变更" comment="" />
     <list id="7d351cde-f05f-498b-8af7-9a48b7935eb2" name="majie 进行的变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +29,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/com/plane/core/objs/bullets/HostileBullet.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="4" changelist="74d275d3-c505-4ae7-82fd-7bf57b9cfa20" />
+        <range start1="4" end1="4" start2="6" end2="9" changelist="e8a987bb-1080-47c6-91a6-bed042afae5b" />
+        <range start1="5" end1="5" start2="10" end2="15" changelist="74d275d3-c505-4ae7-82fd-7bf57b9cfa20" />
+        <range start1="7" end1="7" start2="17" end2="18" changelist="74d275d3-c505-4ae7-82fd-7bf57b9cfa20" />
+        <range start1="10" end1="10" start2="21" end2="25" changelist="74d275d3-c505-4ae7-82fd-7bf57b9cfa20" />
+        <range start1="13" end1="13" start2="28" end2="33" changelist="74d275d3-c505-4ae7-82fd-7bf57b9cfa20" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -93,6 +102,7 @@
       <workItem from="1676645792371" duration="88000" />
       <workItem from="1676645904479" duration="2293000" />
       <workItem from="1676684339076" duration="992000" />
+      <workItem from="1676685498580" duration="1817000" />
     </task>
     <servers />
   </component>

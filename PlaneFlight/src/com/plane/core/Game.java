@@ -92,7 +92,9 @@ public class Game {
     public static void spawnEnemy(){
         for (int i=0;i<round;i++){
             Game.addObject(new Soldier(Soldier.HEALTH, 100+i*100, 0));  //添加小兵
-            Game.addObject(new Tank(Tank.HEALTH, 100+i*200, 0));  //添加坦克
+        }
+        if (round>4){
+            Game.addObject(new Tank(Tank.HEALTH, 900, 0));  //添加坦克
         }
     }
 }
