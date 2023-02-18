@@ -53,7 +53,7 @@ public class Player extends LivingObject implements KeyListener {
     public void fire(){
         if (--fireDelay<1){
             fireDelay=10;
-            if (Game.money<10)
+            if (Game.money<10)  //如果金钱超过10则改为随机子弹
                 Game.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
             else
                 Game.addObject(new PlayerBullet(MathHelper.rand(x, rightX()), y));  //  获得升级

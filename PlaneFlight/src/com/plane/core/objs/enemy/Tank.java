@@ -45,6 +45,6 @@ public class Tank extends Enemy{
     }
 
     public void fire(){
-        Game.addObject(new HostileBullet(MathHelper.rand(this.x, this.rightX()), y));
+        Game.addObject(new HostileBullet(MathHelper.rand(this.x, this.rightX()), y));  //生成随机子弹
     }
 }
