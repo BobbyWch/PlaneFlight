@@ -45,7 +45,7 @@ public class Player extends LivingObject implements KeyListener {
             if (y>Setting.HEIGHT-height) y= Setting.HEIGHT-height;
         }
         if (fire) fire();
-        if (health<0){
+        if (health<=0){
             Game.gg();
             Game.removeObj(this);
         }
@@ -53,7 +53,10 @@ public class Player extends LivingObject implements KeyListener {
     public void fire(){
         if (--fireDelay<1){
             fireDelay=10;
-            Game.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
+            if (Game.money<10)
+                Game.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
+            else
+                Game.addObject(new PlayerBullet(MathHelper.rand(x, rightX()), y));  //  获得升级
         }
     }
 

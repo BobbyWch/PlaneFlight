@@ -27,7 +27,8 @@ public class Soldier extends Enemy{
         y += SPEED;
         if (y> Setting.HEIGHT){
             Game.removeObj(this);
-            Game.money-=5;
+            if (Game.money>5) Game.money-=5;
+            else Game.money=0;
         }
         if (isCover(Game.player)){
             Game.player.damage(DAMAGE,this);

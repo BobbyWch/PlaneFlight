@@ -6,9 +6,8 @@ import com.plane.ui.Renderer;
 
 import java.awt.*;
 
-//敌人子弹可以是正方形，后期绘制成圆的
 public class HostileBullet extends Bullet{
-    public static int WIDTH=10;
+    public static int WIDTH=10;  //敌人子弹可以是正方形，后期绘制成圆的
     public static int HEIGHT=10;
     public static int vBULLET=7;
     public static int DAMAGE=20;
@@ -29,7 +28,13 @@ public class HostileBullet extends Bullet{
         if(this.hit(Game.player)){
             Game.player.damage(DAMAGE, this);
             Game.removeObj(this);
+            Game.money-=10;
         }
-        this.y-=vBULLET;
+        this.y+=vBULLET;
+    }
+
+    public HostileBullet(int x, int y){
+        this.x = x;
+        this.y = y;
     }
 }
