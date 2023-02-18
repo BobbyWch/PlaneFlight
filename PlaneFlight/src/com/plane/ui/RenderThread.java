@@ -1,4 +1,6 @@
 package com.plane.ui;
+import static java.lang.System.currentTimeMillis;
+import static java.lang.System.in;
 
 /**
  * 渲染线程，与主线程平行
@@ -6,10 +8,14 @@ package com.plane.ui;
  * 我没给注释的就不太重要了
  */
 public final class RenderThread extends Thread{
+    public static RenderThread instance;
     private int fps=60;
+    private int delay;
     private final GamePane pane;
     public RenderThread(GamePane pane){
         this.pane=pane;
+        delay=1000/fps;
+        instance=this;
     }
 
     /**
@@ -18,14 +24,19 @@ public final class RenderThread extends Thread{
      */
     public void setFps(int fps) {
         this.fps = fps;
+        delay=1000/fps;
     }
 
     @Override
     public void run() {
+        long t1,t2;
         try {
             while (true){
-                Thread.sleep(1000/fps);
+                t1=currentTimeMillis();
                 pane.repaint();
+                //假设电脑太拉了，fps刷不满，检查一下
+                t2=currentTimeMillis()-t1;
+                if (t2<delay) Thread.sleep(delay-t2);
             }
         }catch (InterruptedException inter){
             System.out.println("Render Thread is Interrupted");

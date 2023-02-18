@@ -1,10 +1,9 @@
 package com.plane.core.objs;
 
+import com.plane.core.Pos;
 import com.plane.ui.Renderer;
 
-public abstract class GameObject {
-    public int x;
-    public int y;
+public abstract class GameObject extends Pos {
     public int width;
     public int height;
     public abstract void render(Renderer r);

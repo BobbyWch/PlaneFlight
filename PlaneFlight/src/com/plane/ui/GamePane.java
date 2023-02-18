@@ -29,6 +29,7 @@ public class GamePane extends JPanel {
         //创建局部变量，提速
         LinkedList<GameObject> all= Game.allObjects;
         Renderer r=renderer;
+        boolean run=Game.running;
         //初始化渲染器
         r.setGraphic(g);
         r.drawImage(background,0,0);
@@ -36,10 +37,10 @@ public class GamePane extends JPanel {
         //目前这里所有的循环都使用java自带的foreach遍历
         //后期如果要优化性能的话，可以手动实现
         for (GameObject o:all){
+            if (run) o.tick();
             o.render(r);
-            o.tick();
         }
-        Game.tick();
+        if (run) Game.tick();
     }
 
     public GamePane(){

@@ -9,7 +9,7 @@ import java.awt.*;
 public class HostileBullet extends Bullet{
     public static int WIDTH=10;  //敌人子弹可以是正方形，后期绘制成圆的
     public static int HEIGHT=10;
-    public static int vBULLET=7;
+    public static int vBULLET=4;
     public static int DAMAGE=20;
 
     @Override
@@ -28,7 +28,7 @@ public class HostileBullet extends Bullet{
         if(this.hit(Game.player)){
             Game.player.damage(DAMAGE, this);
             Game.removeObj(this);
-            Game.money-=10;
+//            Game.money-=10;
         }
         this.y+=vBULLET;
     }

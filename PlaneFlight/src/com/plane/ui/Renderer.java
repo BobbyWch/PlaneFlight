@@ -54,4 +54,12 @@ public final class Renderer {
         int a=(int) (((double)l.health)/l.healthMax*width);
         drawRect(a+x,y+1, width-a-1,height-2,true,Color.white);
     }
+
+    /**
+     * 化缘
+     */
+    public void drawCycle(int x,int y,int width,int height,Color color){
+        g.setColor(color);
+        g.fillRoundRect(x,y,width,height,width/2,height/2);
+    }
 }

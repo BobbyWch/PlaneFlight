@@ -11,38 +11,69 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Player extends LivingObject implements KeyListener {
-    public static int SPEED=7;
+    public static int SPEED_MAX =7;
     private boolean left=false;
     private boolean right=false;
     private boolean up=false;
     private boolean down=false;
-    private boolean fire=false;
+//    private boolean fire=false;
     private int fireDelay=0;
+    /**
+     * 加速延迟，让加速减速感觉更明显
+     * 2tick运行一次
+     */
+    private boolean motionDelay=false;
+    /**
+     * 水平速度
+     */
+    public int v_Horizon=0;
+    /**
+     * 竖直速度
+     */
+    public int v_Vertical=0;
 
     @Override
     public void render(Renderer r) {
         r.drawRect(x,y,width,height,false, Color.green);
         r.text("player  health:"+this.health,x,y);
     }
+
     @Override
     public void tick() {
-        if (left) {
-            x -= SPEED;
+        if (motionDelay){
+            motionDelay=false;
+            if (left) v_Horizon--;
+            if (right) v_Horizon++;
+            if (up) v_Vertical--;
+            if (down) v_Vertical++;
+            if (left|right){
+                if (v_Horizon>SPEED_MAX) v_Horizon=SPEED_MAX;
+                else if (v_Horizon<-SPEED_MAX) v_Horizon=-SPEED_MAX;
+            }else {
+                if (v_Horizon>0) v_Horizon--;
+                else if (v_Horizon<0) v_Horizon++;
+            }
+            if (up|down){
+                if (v_Vertical>SPEED_MAX) v_Vertical=SPEED_MAX;
+                else if (v_Vertical<-SPEED_MAX) v_Vertical=-SPEED_MAX;
+            }else {
+                if (v_Vertical>0) v_Vertical--;
+                else if (v_Vertical<0) v_Vertical++;
+            }
+        }else {
+            motionDelay=true;
+        }
+        if (v_Horizon!=0){
+            x+=v_Horizon;
             if (x<1) x=1;
+            else if (x+width>Setting.WIDTH) x=Setting.WIDTH-width;
         }
-        if (right) {
-            x += SPEED;
-            if (x>Setting.WIDTH-width) x= Setting.WIDTH-width;
-        }
-        if (up) {
-            y-=SPEED;
+        if (v_Vertical!=0){
+            y+=v_Vertical;
             if (y<1) y=1;
+            else if (y+height>Setting.HEIGHT) y=Setting.HEIGHT-height;
         }
-        if (down) {
-            y += SPEED;
-            if (y>Setting.HEIGHT-height) y= Setting.HEIGHT-height;
-        }
-        if (fire) fire();
+        fire();
         if (health<=0){
             Game.gg();
             Game.removeObj(this);
@@ -50,7 +81,7 @@ public class Player extends LivingObject implements KeyListener {
     }
     public void fire(){
         if (--fireDelay<1){
-            fireDelay=10;
+            fireDelay=8;
 //            if (Game.money<10)  //如果金钱超过10则改为随机子弹
                 Game.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
 //            else
@@ -83,9 +114,9 @@ public class Player extends LivingObject implements KeyListener {
             case KeyEvent.VK_DOWN:
                 down=true;
                 break;
-            case KeyEvent.VK_SPACE:
-                fire=true;
-                break;
+//            case KeyEvent.VK_SPACE:
+//                fire=true;
+//                break;
         }
     }
 
@@ -104,9 +135,9 @@ public class Player extends LivingObject implements KeyListener {
             case KeyEvent.VK_DOWN:
                 down=false;
                 break;
-            case KeyEvent.VK_SPACE:
-                fire=false;
-                break;
+//            case KeyEvent.VK_SPACE:
+//                fire=false;
+//                break;
         }
     }
 }

@@ -23,6 +23,7 @@ public class GameFrame extends JFrame implements WindowListener {
     public void windowOpened(WindowEvent e) {
         Setting.WIDTH =GamePane.instance.getWidth();
         Setting.HEIGHT=GamePane.instance.getHeight();
+        Game.start();
     }
 
     @Override
