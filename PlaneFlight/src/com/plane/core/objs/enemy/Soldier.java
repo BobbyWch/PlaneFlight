@@ -9,9 +9,9 @@ import java.awt.*;
 
 public class Soldier extends Enemy{
     public static int HEALTH = 200;
-    public static int SPEED=1;
-    public static int WIDTH=50;
-    public static int HEIGHT=50;
+    public static int SPEED=2;
+    public static int WIDTH=30;
+    public static int HEIGHT=30;
     public static int DAMAGE=200;
 
     @Override
@@ -25,6 +25,7 @@ public class Soldier extends Enemy{
         y += SPEED;
         if (y> Setting.HEIGHT){
             Game.removeObj(this);
+            Game.money-=5;
         }
         if (isCover(Game.player)){
             Game.player.damage(DAMAGE,this);

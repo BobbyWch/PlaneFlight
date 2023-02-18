@@ -4,6 +4,7 @@ import com.plane.core.objs.GameObject;
 import com.plane.core.objs.Player;
 import com.plane.core.objs.enemy.Enemy;
 import com.plane.core.objs.enemy.Soldier;
+import com.plane.core.objs.enemy.Tank;
 
 import java.util.LinkedList;
 
@@ -90,7 +91,8 @@ public class Game {
     }
     public static void spawnEnemy(){
         for (int i=0;i<round;i++){
-            Game.addObject(new Soldier(Soldier.HEALTH, 100+i*100, 0));
+            Game.addObject(new Soldier(Soldier.HEALTH, 100+i*100, 0));  //添加小兵
+            Game.addObject(new Tank(Tank.HEALTH, 100+i*200, 0));  //添加坦克
         }
     }
 }
