@@ -11,7 +11,7 @@ public class PlayerBullet extends Bullet{
     public static final int v_BULLET=10;
     public static final int WIDTH_BULLET=4;
     public static final int HEIGHT_BULLET=10;
-    public static final int DAMAGE=40;
+    public static int DAMAGE=40;
     public PlayerBullet(int x,int y){
         this.x=x;
         this.y=y;

@@ -3,7 +3,7 @@ package com.plane.io;
 import javax.imageio.ImageIO;
 import java.awt.*;
 
-public class ImageLoader {
+public final class ImageLoader {
     /**
      * 如果width和height都为0，那么不进行缩放
      * @param path 示例："/res/plane.jpg"

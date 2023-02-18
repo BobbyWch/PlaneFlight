@@ -52,6 +52,7 @@ public final class Renderer {
         drawRect(x,y,width,height,true,Color.red);
         if (l.health==l.healthMax) return;
         int a=(int) (((double)l.health)/l.healthMax*width);
+        if (a<0) a=0;
         drawRect(a+x,y+1, width-a-1,height-2,true,Color.white);
     }
 

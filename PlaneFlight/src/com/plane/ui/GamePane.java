@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
 
-public class GamePane extends JPanel {
+public final class GamePane extends JPanel {
     //全局实例
     public static GamePane instance;
     private Image background;
@@ -22,10 +22,9 @@ public class GamePane extends JPanel {
      */
     @Override
     public void paint(Graphics g) {
+        super.paint(g);
         g.setFont(font);
         if (fontHeight==0) fontHeight=g.getFontMetrics(font).getHeight();
-        //直接清除矩形，不调用父类
-        g.clearRect(0,0,getWidth(),getHeight());
         //创建局部变量，提速
         LinkedList<GameObject> all= Game.allObjects;
         Renderer r=renderer;

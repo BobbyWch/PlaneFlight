@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Player extends LivingObject implements KeyListener {
+public final class Player extends LivingObject implements KeyListener {
     public static int SPEED_MAX =7;
     private boolean left=false;
     private boolean right=false;
@@ -91,8 +91,8 @@ public class Player extends LivingObject implements KeyListener {
 
     public Player(){
         super(Setting.PLAYER_HEALTH);
-        this.width=70;
-        this.height=70;
+        this.width=40;
+        this.height=40;
         this.x=(Setting.WIDTH-width)/2;
     }
 

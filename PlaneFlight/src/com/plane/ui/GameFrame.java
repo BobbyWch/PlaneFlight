@@ -8,21 +8,22 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class GameFrame extends JFrame implements WindowListener {
-    public GameFrame(){
+public final class GameFrame extends JFrame implements WindowListener {
+    public GameFrame() {
         super("飞机大战");
         setSize(Setting.WIDTH, Setting.HEIGHT);
         setResizable(false);
         addKeyListener(Game.player);
         getContentPane().add(new GamePane(), BorderLayout.CENTER);
+        getContentPane().add(new GameBar(), BorderLayout.SOUTH);
         addWindowListener(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     @Override
     public void windowOpened(WindowEvent e) {
-        Setting.WIDTH =GamePane.instance.getWidth();
-        Setting.HEIGHT=GamePane.instance.getHeight();
+        Setting.WIDTH = GamePane.instance.getWidth();
+        Setting.HEIGHT = GamePane.instance.getHeight();
         Game.start();
     }
 
