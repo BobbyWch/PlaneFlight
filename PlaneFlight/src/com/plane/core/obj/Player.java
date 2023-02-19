@@ -17,7 +17,7 @@ public final class Player extends LivingObject implements KeyListener {
     private boolean right=false;
     private boolean up=false;
     private boolean down=false;
-//    private boolean fire=false;
+    public static boolean STRONGER=false;
     private int fireDelay=0;
     /**
      * 加速延迟，让加速减速感觉更明显
@@ -80,11 +80,17 @@ public final class Player extends LivingObject implements KeyListener {
             Game.removeObj(this);
         }
     }
+
     public void fire(){
         if (--fireDelay<1){
             fireDelay=FIRE_DELAY;
 //            if (Game.money<10)  //如果金钱超过10则改为随机子弹
+            if (STRONGER){
+                Game.addObject(new PlayerBullet(x, y));
+                Game.addObject(new PlayerBullet(rightX(), y));
+            }else {
                 Game.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
+            }
 //            else
 //                Game.addObject(new PlayerBullet(MathHelper.rand(x, rightX()), y));  //  获得升级
         }

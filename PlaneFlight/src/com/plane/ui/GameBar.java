@@ -22,6 +22,7 @@ public final class GameBar extends JPanel {
                 return false;
             }
         });
+
         add(new BuyButton("攻速提升",20) {
             @Override
             protected void onBuy() {
@@ -33,6 +34,19 @@ public final class GameBar extends JPanel {
                 return false;
             }
         });
+
+        add(new BuyButton("武器加强 I", 30) {
+            @Override
+            protected void onBuy() {
+                Player.STRONGER=true;
+            }
+
+            @Override
+            protected boolean reachLimit() {
+                return false;
+            }
+        });
+
         setBorder(null);
         setBackground(Color.cyan);
         setForeground(Color.cyan);
