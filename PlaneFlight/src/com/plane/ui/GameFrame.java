@@ -2,6 +2,7 @@ package com.plane.ui;
 
 import com.plane.Setting;
 import com.plane.core.Game;
+import com.plane.core.event.SettingListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,13 +10,24 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public final class GameFrame extends JFrame implements WindowListener {
+    public static JMenu preference;
+    public static JMenuItem game;
+    public static JMenuBar bar;
     public GameFrame() {
         super("飞机大战");
         setSize(Setting.WIDTH, Setting.HEIGHT);
         setResizable(false);
+        preference=new JMenu("Preferences");
+        bar=new JMenuBar();
+        game=new JMenuItem("设置");
+        preference.add(game);
+        bar.add(preference);
+        game.addActionListener(new SettingListener());
+
         addKeyListener(Game.player);
+        getContentPane().add(bar, BorderLayout.NORTH);
         getContentPane().add(new GamePane(), BorderLayout.CENTER);
-        getContentPane().add(new GameBar(), BorderLayout.SOUTH);
+        setJMenuBar(bar);
         addWindowListener(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
