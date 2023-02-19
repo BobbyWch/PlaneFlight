@@ -1,10 +1,11 @@
 package com.plane.core;
 
-import com.plane.core.objs.GameObject;
-import com.plane.core.objs.Player;
-import com.plane.core.objs.enemy.Enemy;
-import com.plane.core.objs.enemy.Soldier;
-import com.plane.core.objs.enemy.Tank;
+import com.plane.core.event.MoneyChangeEvent;
+import com.plane.core.obj.GameObject;
+import com.plane.core.obj.Player;
+import com.plane.core.obj.enemy.Enemy;
+import com.plane.core.obj.enemy.Soldier;
+import com.plane.core.obj.enemy.Tank;
 import com.plane.ui.RenderThread;
 
 import java.util.LinkedList;
@@ -27,7 +28,7 @@ public final class Game {
     public static final LinkedList<GameObject> waitAdd = new LinkedList<>();
     public static Player player;
     public static int round = 0;
-    public static int money = 0;
+    private static int money = 0;
     /**
      * 游戏是否正在运行
      */
@@ -45,8 +46,9 @@ public final class Game {
      */
     public static void start() {
         running = true;
-        money = 0;
+        setMoney(0);
         timer = 0;
+        player.reset();
         RenderThread.instance.setFps(60);
         nextRound();
     }
@@ -124,5 +126,18 @@ public final class Game {
 //        if (round > 2) {
 //            Game.addObject(new Tank(Tank.HEALTH, 900, 0));  //添加坦克
 //        }
+    }
+    public static void setMoney(int m){
+        MoneyChangeEvent.post(new MoneyChangeEvent(Game.money,Game.money=m));
+    }
+
+    /**
+     * 如果是负的，就是扣钱
+     */
+    public static void addMoney(int m){
+        MoneyChangeEvent.post(new MoneyChangeEvent(Game.money,Game.money+=m));
+    }
+    public static int getMoney(){
+        return money;
     }
 }

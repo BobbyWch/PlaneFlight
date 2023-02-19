@@ -1,10 +1,10 @@
-package com.plane.core.objs.enemy;
+package com.plane.core.obj.enemy;
 
 import com.plane.core.Game;
 import com.plane.core.LazyRun;
 import com.plane.core.MathHelper;
 import com.plane.core.move.MoveControl;
-import com.plane.core.objs.bullets.HostileBullet;
+import com.plane.core.obj.bullets.HostileBullet;
 import com.plane.ui.Renderer;
 
 import java.awt.*;
@@ -45,6 +45,7 @@ public class Tank extends Enemy implements LazyRun {
         }
         if (health<=0){
             Game.removeObj(this);
+            Game.addMoney(50);
         }
     }
 

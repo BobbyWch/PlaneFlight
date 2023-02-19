@@ -1,7 +1,7 @@
-package com.plane.core.objs.bullets;
+package com.plane.core.obj.bullets;
 
 import com.plane.core.Game;
-import com.plane.core.objs.GameObject;
+import com.plane.core.obj.GameObject;
 import com.plane.ui.Renderer;
 
 import java.awt.*;

@@ -1,4 +1,4 @@
-package com.plane.core.objs;
+package com.plane.core.obj;
 
 public abstract class LivingObject extends GameObject{
     public int health;

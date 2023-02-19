@@ -1,6 +1,6 @@
 package com.plane.ui;
 
-import com.plane.core.objs.LivingObject;
+import com.plane.core.obj.LivingObject;
 
 import java.awt.*;
 

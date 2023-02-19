@@ -2,7 +2,7 @@ package com.plane.ui;
 
 import com.plane.Setting;
 import com.plane.core.Game;
-import com.plane.core.objs.GameObject;
+import com.plane.core.obj.GameObject;
 import com.plane.io.ImageLoader;
 
 import javax.swing.*;
@@ -48,12 +48,10 @@ public final class GamePane extends JPanel {
         setBounds(0,0, Setting.WIDTH,Setting.HEIGHT);
         setLayout(null);
         Game.addObject(Game.player);
-        Game.player.x=(Setting.WIDTH-Game.player.width)/2;
-        Game.player.y=Setting.HEIGHT-Game.player.height-50;
         new RenderThread(this).start();
     }
     private void gui(Renderer r){
-        r.text(String.valueOf(Game.money),2,fontHeight,Color.orange);
+        r.text(String.valueOf(Game.getMoney()),2,fontHeight,Color.orange);
         r.healthBar(Game.player,2,fontHeight+10,80,10);
     }
 }

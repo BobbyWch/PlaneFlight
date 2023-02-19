@@ -1,6 +1,6 @@
 package com.plane.core;
 
-import com.plane.core.objs.GameObject;
+import com.plane.core.obj.GameObject;
 
 public class Pos {
     public int x;

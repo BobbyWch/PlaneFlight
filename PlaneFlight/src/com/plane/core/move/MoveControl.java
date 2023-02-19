@@ -3,7 +3,7 @@ package com.plane.core.move;
 import com.plane.Setting;
 import com.plane.core.MathHelper;
 import com.plane.core.Pos;
-import com.plane.core.objs.GameObject;
+import com.plane.core.obj.GameObject;
 /**
  * 高级移动
  * 使用于所有会自己动的GameObject

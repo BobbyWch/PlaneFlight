@@ -1,17 +1,17 @@
-package com.plane.core.objs.enemy;
+package com.plane.core.obj.enemy;
 
 import com.plane.Setting;
 import com.plane.core.Game;
 import com.plane.core.LazyRun;
 import com.plane.core.move.MoveControl;
-import com.plane.core.objs.GameObject;
+import com.plane.core.obj.GameObject;
 import com.plane.ui.Renderer;
 
 import java.awt.*;
 
 public class Soldier extends Enemy implements LazyRun {
     public static int HEALTH = 100;
-    public static int SPEED=1;
+    public static int SPEED=2;
     public static int WIDTH=40;
     public static int HEIGHT=40;
     public static int DAMAGE=200;
@@ -29,8 +29,6 @@ public class Soldier extends Enemy implements LazyRun {
         move.move();
         if (y> Setting.HEIGHT){
             Game.removeObj(this);
-            if (Game.money>5) Game.money-=5;
-            else Game.money=0;
         }
         if (isCover(Game.player)){
             Game.player.damage(DAMAGE,this);
@@ -38,7 +36,7 @@ public class Soldier extends Enemy implements LazyRun {
         }
         if (health<=0) {
             Game.removeObj(this);
-            Game.money+=10;
+            Game.addMoney(10);
         }
     }
     private final MoveControl move;

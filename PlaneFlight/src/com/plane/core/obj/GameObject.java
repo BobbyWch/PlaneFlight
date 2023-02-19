@@ -1,4 +1,4 @@
-package com.plane.core.objs;
+package com.plane.core.obj;
 
 import com.plane.core.Pos;
 import com.plane.ui.Renderer;

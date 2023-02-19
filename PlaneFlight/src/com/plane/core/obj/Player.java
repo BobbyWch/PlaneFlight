@@ -1,9 +1,9 @@
-package com.plane.core.objs;
+package com.plane.core.obj;
 
 import com.plane.Setting;
 import com.plane.core.Game;
 import com.plane.core.MathHelper;
-import com.plane.core.objs.bullets.PlayerBullet;
+import com.plane.core.obj.bullets.PlayerBullet;
 import com.plane.ui.Renderer;
 
 import java.awt.*;
@@ -12,6 +12,7 @@ import java.awt.event.KeyListener;
 
 public final class Player extends LivingObject implements KeyListener {
     public static int SPEED_MAX =7;
+    public static int FIRE_DELAY=8;
     private boolean left=false;
     private boolean right=false;
     private boolean up=false;
@@ -81,7 +82,7 @@ public final class Player extends LivingObject implements KeyListener {
     }
     public void fire(){
         if (--fireDelay<1){
-            fireDelay=8;
+            fireDelay=FIRE_DELAY;
 //            if (Game.money<10)  //如果金钱超过10则改为随机子弹
                 Game.addObject(new PlayerBullet(MathHelper.toCenter(x,width,PlayerBullet.WIDTH_BULLET),y));
 //            else
@@ -96,6 +97,10 @@ public final class Player extends LivingObject implements KeyListener {
         this.x=(Setting.WIDTH-width)/2;
     }
 
+    public void reset(){
+        this.x=(Setting.WIDTH-width)/2;
+        this.y= Setting.HEIGHT-150;
+    }
     @Override
     public void keyTyped(KeyEvent e) {}
 

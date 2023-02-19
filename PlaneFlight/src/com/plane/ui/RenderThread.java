@@ -1,6 +1,6 @@
 package com.plane.ui;
+
 import static java.lang.System.currentTimeMillis;
-import static java.lang.System.in;
 
 /**
  * 渲染线程，与主线程平行
